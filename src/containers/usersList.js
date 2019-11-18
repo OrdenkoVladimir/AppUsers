@@ -5,11 +5,17 @@ import { connect } from 'react-redux'
 
 const UsersList = (props) => {
     return (
-                 
+           props.isEmpty ? 
+           <tr>
+               <td>Empty</td>
+               <td>Empty</td>
+               <td>Empty</td>
+           </tr> 
+           :
            props.users.map((user, index) => {
           return (
             
-            <tr> 
+            <tr key={index}> 
                 <td>{user.name}</td>
                 <td>{user.age}</td>
                 <td>{user.city}</td>
@@ -25,7 +31,8 @@ const UsersList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.item
+        users: state.item,
+        isEmpty: state.isEmpty
     }
 }
 

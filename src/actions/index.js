@@ -19,3 +19,10 @@ export const sortUserAge = (users) => {
         payload: users,
     }
 }
+
+export const newUserAdd = (user) => {
+    return {
+        type: "ACTION_NEW_USERADD",
+        payload: user,
+    }
+}

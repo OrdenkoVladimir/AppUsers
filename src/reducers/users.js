@@ -49,19 +49,17 @@ const users = [
 
     const InitialState = {
         item: users,
-        sort: 'no_sort'
+        sort: 'no_sort',
+        isEmpty: false
     }
 
     export const rootReducers = (state = InitialState, action) => {
         switch(action.type) {
             case 'ACTION_DELETE_AllUSER':
                 return {
-                    item: [ {
-                        name: "Пусто",
-                        age: "Пусто",
-                        city: "Пусто"
-                    } ],
-                    filter: 'no_sort',
+                    ...state,
+                    item: [],
+                    isEmpty: true,
                 }
 
                 break
@@ -70,7 +68,8 @@ const users = [
 
                 return {
                     item: action.payload.filter((user, index ) => index != rand ),
-                    filter: 'no_sort'
+                    filter: 'no_sort',
+                    isEmpty: false,
                 } 
 
                 break
@@ -79,9 +78,19 @@ const users = [
                   return {
                       item: action.payload,
                       sort: 'age_sort',
+                      isEmpty: false,
                   }
 
                 break
+            case "ACTION_NEW_USERADD":
+                return {
+                    ...state,
+                    item: [
+                        action.payload,
+                        ...state.item
+                    ],
+                    isEmpty: false,
+                }
             
         }
 
