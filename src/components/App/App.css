@@ -1,0 +1,32 @@
+.table-block {
+    display: inline-block;
+}
+
+thead th {
+    background-color: brown;
+    width: 130px;
+    color: #fff;
+    padding: 10px 0;
+}
+
+tbody td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: chocolate;
+    color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: blanchedalmond;
+}
+
+button {
+    background-color: green;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+}
