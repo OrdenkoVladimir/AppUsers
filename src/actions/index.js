@@ -15,7 +15,7 @@ export const deleteAnyUser = (users) => {
 
 export const sortUserAge = (users) => {
     return {
-        type: "ACTION_SORT_USERNAME",
+        type: "ACTION_SORT_USERAGE",
         payload: users,
     }
 }

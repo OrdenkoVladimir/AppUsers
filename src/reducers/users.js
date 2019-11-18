@@ -49,7 +49,6 @@ const users = [
 
     const InitialState = {
         item: users,
-        sort: 'no_sort',
         isEmpty: false
     }
 
@@ -64,20 +63,19 @@ const users = [
 
                 break
             case 'ACTION_DELETE_ANYUSER':
+                
                 const rand = Math.floor(Math.random() * action.payload.length)
 
                 return {
                     item: action.payload.filter((user, index ) => index != rand ),
-                    filter: 'no_sort',
                     isEmpty: false,
                 } 
 
                 break
-            case 'ACTION_SORT_USERNAME':
+            case 'ACTION_SORT_USERAGE':
                
                   return {
-                      item: action.payload,
-                      sort: 'age_sort',
+                      item: action.payload.filter(item => item == item),
                       isEmpty: false,
                   }
 

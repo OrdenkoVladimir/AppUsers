@@ -8,9 +8,9 @@ const HeaderSort = (props) => {
     
     return (
         <tr>
-            <th>Name</th>
-            <th onClick={() => props.sortUserAge(props.users) } >Age</th>
-            <th>City</th>
+            <th onClick={() => props.sortUserAge(sortItems(props.users, 'name_sort')) }>Name &#8595;</th>
+            <th onClick={() => props.sortUserAge(sortItems(props.users, 'age_sort')) } >Age &#8595;</th>
+            <th onClick={() => props.sortUserAge(sortItems(props.users, 'city_sort')) }>City &#8595;</th>
         </tr>
     )
 }
@@ -22,18 +22,25 @@ const sortItems = (users, sortBy) => {
 
         break
         case 'age_sort':
-            return  users.sort((a, b) => a.age - b.age)
+            return users.sort((a, b) => a.age - b.age)
         
         break
+        case 'name_sort':
+            return users.sort((a, b) => a.name > b.name ? 1 : -1)
+
+        break
+        case 'city_sort':
+            return users.sort((a, b) => a.city > b.city ? 1 : -1)
         default:
-            return users
+           
     }
-   
+    return users
 }
 
 const mapStateToProps = (state) => {
     return {
-        users: sortItems(state.item, state.sort)
+        users: state.item,
+        sort: state.sort
     }
 }
 

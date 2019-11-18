@@ -6,6 +6,7 @@
     display: inline-block;
 }
 
+
 thead th {
     background-color: brown;
     width: 130px;
@@ -15,7 +16,6 @@ thead th {
 
 tbody td {
     border: 1px solid black;
-    border-collapse: collapse;
     padding: 10px;
 }
 
