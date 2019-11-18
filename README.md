@@ -1,1 +1,1 @@
-Simple traffic lights emulator
+React + Redux
