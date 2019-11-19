@@ -1,13 +1,14 @@
 import React from 'react'
 import { bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
-import { deleteAllUser, deleteAnyUser, sortUserName } from '../actions/index'
+import { deleteAllUser, deleteAnyUser } from '../actions/index'
 
 const DeleteButtons = (props) => {
+    const rand = Math.floor(Math.random() * props.users.length)
     return (
         <div>
             <button onClick={() => props.deleteAllUser(props.users) }>Очистить таблицу</button>
-            <button onClick={() => props.deleteAnyUser(props.users) }>Удалить случайнго пользователя</button>
+            <button onClick={() => props.deleteAnyUser(rand)}>Удалить случайнго пользователя</button>
         </div>
     )
 }

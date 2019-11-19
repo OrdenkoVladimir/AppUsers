@@ -49,26 +49,19 @@ const users = [
 
     const InitialState = {
         item: users,
-        isEmpty: false
     }
 
     export const rootReducers = (state = InitialState, action) => {
         switch(action.type) {
             case 'ACTION_DELETE_AllUSER':
                 return {
-                    ...state,
                     item: [],
-                    isEmpty: true,
                 }
 
                 break
             case 'ACTION_DELETE_ANYUSER':
-                
-                const rand = Math.floor(Math.random() * action.payload.length)
-
                 return {
-                    item: action.payload.filter((user, index ) => index != rand ),
-                    isEmpty: false,
+                    item: state.item.filter((user, index ) => index != action.payload ),
                 } 
 
                 break
@@ -76,18 +69,15 @@ const users = [
                
                   return {
                       item: action.payload.filter(item => item == item),
-                      isEmpty: false,
                   }
 
                 break
             case "ACTION_NEW_USERADD":
                 return {
-                    ...state,
                     item: [
                         action.payload,
                         ...state.item
                     ],
-                    isEmpty: false,
                 }
             
         }

@@ -6,10 +6,10 @@ export const deleteAllUser = (users) => {
    
 }
 
-export const deleteAnyUser = (users) => {
+export const deleteAnyUser = (rand) => {
     return {
         type: "ACTION_DELETE_ANYUSER",
-        payload: users
+        payload: rand
     }
 }
 

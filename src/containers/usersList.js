@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 const UsersList = (props) => {
     return (
-           props.isEmpty ? 
+           !props.users.length ? 
            <tr>
                <td>Empty</td>
                <td>Empty</td>
@@ -32,7 +32,6 @@ const UsersList = (props) => {
 const mapStateToProps = (state) => {
     return {
         users: state.item,
-        isEmpty: state.isEmpty
     }
 }
 
