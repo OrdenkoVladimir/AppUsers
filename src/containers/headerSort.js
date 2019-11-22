@@ -16,25 +16,27 @@ const HeaderSort = (props) => {
 }
 
 const sortItems = (users, sortBy) => {
+    const updatedUsers = [...users]
+
     switch(sortBy) {
         case 'no_sort':
-            return users
+            return updatedUsers
 
         break
         case 'age_sort':
-            return users.sort((a, b) => a.age - b.age)
+            return updatedUsers.sort((a, b) => a.age - b.age)
         
         break
         case 'name_sort':
-            return users.sort((a, b) => a.name > b.name ? 1 : -1)
+            return updatedUsers.sort((a, b) => a.name > b.name ? 1 : -1)
 
         break
         case 'city_sort':
-            return users.sort((a, b) => a.city > b.city ? 1 : -1)
+            return updatedUsers.sort((a, b) => a.city > b.city ? 1 : -1)
         default:
            
     }
-    return users
+    return updatedUsers
 }
 
 const mapStateToProps = (state) => {

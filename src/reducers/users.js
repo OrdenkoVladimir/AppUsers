@@ -55,33 +55,35 @@ const users = [
         switch(action.type) {
             case 'ACTION_DELETE_AllUSER':
                 return {
+                    ...state,
                     item: [],
                 }
 
                 break
             case 'ACTION_DELETE_ANYUSER':
                 return {
+                    ...state,
                     item: state.item.filter((user, index ) => index != action.payload ),
                 } 
 
                 break
             case 'ACTION_SORT_USERAGE':
-               
                   return {
-                      item: action.payload.filter(item => item == item),
+                      ...state,
+                      item: action.payload,
                   }
 
                 break
             case "ACTION_NEW_USERADD":
                 return {
+                    ...state,
                     item: [
                         action.payload,
                         ...state.item
                     ],
                 }
+            default: return state;
             
         }
-
-        return state
     }
 
